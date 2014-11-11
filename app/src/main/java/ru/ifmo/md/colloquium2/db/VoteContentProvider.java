@@ -10,7 +10,6 @@ public class VoteContentProvider extends ContentProvider {
     private static String AUTHORITY = "ru.ifmo.md.colloquium2.db.VoteContentProvider";
 
     public static final Uri CANDIDATES_CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/candidates");
-    public static final Uri NEWS_CONTENT_URL = Uri.parse("content://" + AUTHORITY + "/votes");
 
     private VoteDBHelper mDbHelper;
 
@@ -22,8 +21,6 @@ public class VoteContentProvider extends ContentProvider {
         String tableName;
         if(type.equals("candidates")) {
             tableName = CandidatesTable.TABLE_NAME;
-        } else if(type.equals("votes")) {
-            tableName = VotesTable.TABLE_NAME;
         } else {
             throw new UnsupportedOperationException("Invalid data type");
         }
