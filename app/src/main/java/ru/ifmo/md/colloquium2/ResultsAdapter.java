@@ -2,6 +2,7 @@ package ru.ifmo.md.colloquium2;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,9 @@ public class ResultsAdapter extends CursorAdapter {
 
         TextView nameText = (TextView) v.findViewById(android.R.id.text1);
         TextView votesText = (TextView) v.findViewById(android.R.id.text2);
+        if(cursor.isFirst()) {
+            nameText.setTextColor(Color.rgb(255, 0, 0));
+        }
         nameText.setText(title);
         votesText.setText(Integer.toString(votes));
     }
